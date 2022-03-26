@@ -1,4 +1,0 @@
-URL=
-USUARIO=
-PASSWORD=
-DB=
