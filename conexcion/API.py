@@ -16,4 +16,9 @@ class api:
         path=''
     def GET(self,header,token,datos,path):
         response=requests.get(self.tabla+path)
-
+    def POST(self,header,token,datos,path):
+        response=requests.post(self.tabla+path)
+    def PUT(self,header,token,datos,path):
+        response=requests.put(self.tabla+path)
+    def DEL(self,header,token,datos,path):
+        response=requests.delete(self.tabla+path)
