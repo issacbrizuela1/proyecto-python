@@ -1,6 +1,6 @@
 import time
 from urllib import response
-import configuracion
+#import configuacion
 import requests
 import json
 from requests.structures import CaseInsensitiveDict
