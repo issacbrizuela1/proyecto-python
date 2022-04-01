@@ -15,6 +15,5 @@ class api:
         datos=list()
         path=''
     def GET(self,header,token,datos,path):
-        if header=='' and token
         response=requests.get(self.tabla+path)
 
