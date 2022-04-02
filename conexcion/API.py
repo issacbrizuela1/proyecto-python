@@ -1,8 +1,6 @@
 from urllib import response
 import requests
 import json
-import sys
-import os
 from requests.structures import CaseInsensitiveDict
 from conf.configuracion import conf
 
