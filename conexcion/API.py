@@ -4,16 +4,17 @@ import requests
 import json
 from requests.structures import CaseInsensitiveDict
 class api:
+    tabla = Configuracion.URL
+    dbuser = Configuracion.USUARIO
+    dbpassword = Configuracion.PASSWORD
+    usuario = Configuracion.U_USUARIO
+    password = Configuracion.U_PASSWORD
+    HEADEr = ''
+    token = ''
+    datos = list()
+    path = ''
     def __init__(self):
-        tabla = Configuracion.URL
-        dbuser = Configuracion.USUARIO
-        dbpassword = Configuracion.PASSWORD
-        usuario = Configuracion.U_USUARIO
-        password = Configuracion.U_PASSWORD
-        HEADEr = ''
-        token = ''
-        datos = list()
-        path = ''
+        pass
 
     def GET(self, header, token, datos, path):
         response = requests.get(self.tabla+path)
@@ -26,7 +27,3 @@ class api:
 
     def DEL(self, header, token, datos, path):
         response = requests.delete(self.tabla+path)
-
-
-s = api.tabla
-print(s)
