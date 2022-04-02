@@ -5,8 +5,6 @@ import json
 from requests.structures import CaseInsensitiveDict
 class api:
     tabla = Configuracion.URL
-    dbuser = Configuracion.USUARIO
-    dbpassword = Configuracion.PASSWORD
     usuario = Configuracion.U_USUARIO
     password = Configuracion.U_PASSWORD
     HEADEr = ''
@@ -17,7 +15,10 @@ class api:
         pass
 
     def GET(self, header, token, datos, path):
-        response = requests.get(self.tabla+path)
+        if header != '' or token != '' or datos != '':
+            return requests.get(url=self.table + path,data=datos,headers=header)
+        else:
+            return requests.get(self.tabla + path)
 
     def POST(self, header, token, datos, path):
         response = requests.post(self.tabla+path)
