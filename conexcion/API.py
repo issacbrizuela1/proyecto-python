@@ -1,20 +1,15 @@
+from configuracion import Configuracion
 from urllib import response
 import requests
 import json
-import sys
-import os
 from requests.structures import CaseInsensitiveDict
-from conf.configuracion import conf
-
-
 class api:
     def __init__(self):
-
-        tabla = conf.URL
-        dbuser = conf.USUARIO
-        dbpassword = conf.PASSWORD
-        usuario = conf.U_USUARIO
-        password = conf.U_PASSWORD
+        tabla = Configuracion.URL
+        dbuser = Configuracion.USUARIO
+        dbpassword = Configuracion.PASSWORD
+        usuario = Configuracion.U_USUARIO
+        password = Configuracion.U_PASSWORD
         HEADEr = ''
         token = ''
         datos = list()
