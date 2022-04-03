@@ -1,4 +1,4 @@
-from configuracion import Configuracion
+from conf import configuracion as Configuracion
 from urllib import response
 import requests
 import json
@@ -17,7 +17,7 @@ class api:
     def GET(self, header, token, datos, path):
         if header != '' or token != '' or datos != '':
             return requests.get(url=self.table + path,data=datos,headers=header)
-        else:
+        elif token!='':
             return requests.get(self.tabla + path)
 
     def POST(self, header, token, datos, path):
