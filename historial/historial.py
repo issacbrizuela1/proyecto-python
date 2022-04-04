@@ -1,5 +1,5 @@
 import collections
-
+from random import randrange
 import self
 from configuracion import Configuracion
 import gc
@@ -48,17 +48,18 @@ class Historial():
     def tamanoMongoHistorial(self):
         return self.collection.count_documents({'idSensor': 1})
 
-
+"""
 p = Historial()
-p.addMongoHistorial({
-    "id": 2,
+for i in range(3,15):
+    p.addMongoHistorial({
+    "id": i,
     "idSensor": 1,
     "Valor":{
-        "temparatura":5,
-        "humedad":6
+        "temparatura":randrange(30),
+        "humedad":randrange(30)
     },
     "Fechadecreacion": datetime.datetime.now(),
     "Fechadeactualizacion": ""
-})
+    })
 p.getHistorial()
-gc.enable()
+gc.enable()"""
