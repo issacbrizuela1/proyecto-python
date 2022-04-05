@@ -1,0 +1,3 @@
+
+class InterfasSensor:
+    pass
