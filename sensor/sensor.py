@@ -6,7 +6,7 @@ from pymongo import MongoClient
 import pprint
 import asyncio
 
-"""
+
 class Sensor():
     url = ""
     client = MongoClient(url)
@@ -76,17 +76,5 @@ class Sensor():
         return self.collection.count_documents({'idUsuario': 1})
     def tamanoLista(self):
         return len(self.lista)
-"""
-s=list()
-c=True
-while c:
-    nombre=input("nombre del puerto:\t")
-    numerop=input("numero del puerto a usar:\t")
-    op=input("¿Desea terminar de agregar puertos GPIO? Y/N")
-    s.append({str(nombre):int(numerop)})
-    if op.upper()=="Y":
-        c=False
 
-print(s)
-
-gc.enable()
+#gc.enable()

@@ -29,8 +29,15 @@ class InterfasSensor:
             s.GPIO.append({str(nombrePuerto):int(puerto)})
             if opcion.upper()=="Y":
                 control=False
-    
-    def mostrarSensores(self):
+    def iterar(self,lista):
+        for valor in list(lista):
+            if isinstance(valor,list):
+                for subval in list(valor):
+                    self.iterar(subval)
+            else:
+                print(valor)
+        pass
+    def mostrarSensores(self,lista=None):
         self.limpirarConsola()
         print("\n\n" + "*" * 30 + "Datos de Productos" + "*" * 30)
         if (lista == None):
@@ -49,3 +56,8 @@ class InterfasSensor:
             print(str(i).ljust(5) + "\t\t" + str(p))
             i += 1
         input("oprime enter para continuar .....")
+    def buscarSensor(self, nombre):
+        mylista = [p for p in self.lista if p.codigo == nombre]
+        self.mostrarProducto(mylista)
+    def getListaSensores(self):
+        return self.lista
