@@ -7,9 +7,6 @@ import pprint
 import asyncio
 from jsonfileSensor import JsonFile
 
-"""
-"""
-
 
 class Sensor(JsonFile):
 
@@ -25,9 +22,11 @@ class Sensor(JsonFile):
         self.Descripcion = ""
         self.Fechadecreacion = ""
         self.Fechadeactualisacion = ""
-        self.Estado = ["indefinido","habilitado","deshabilitado"]
+        self.Estados = ["indefinido", "habilitado", "deshabilitado"]
+        self.Estado = self.Estados[0]
         self.GPIO = list()
         self.IMG = ""
+        #
         self.lista = list()
         pass
 
@@ -43,5 +42,16 @@ class Sensor(JsonFile):
     def modificar_sensor(self, index, sensor):
         self.lista[index] = sensor
 
+    def eliminar(self, sensor):
+        self.lista.remove(sensor)
+
     def tamano(self):
         return len(self.lista)
+
+    def toObjects(self):
+        lista = list()
+        data = self.getDataJson()
+        for x in data:
+            lista.append(Sensor(idSensor=x['idSensor'], idUsuario=x['idUsuario'], NombreSensor=x["NombreSensor"],
+                                Descripcion=x["Descripcion"], Estado=x["Estado"], GPIO=x["GPIO"], IMG=x["IMG"]))
+        self.lista = lista
