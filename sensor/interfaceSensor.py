@@ -2,8 +2,7 @@ import json
 from operator import truediv
 import os
 import datetime
-
-from sensores2 import Sensor
+from sensores import Sensor
 
 
 class InterfasSensor:

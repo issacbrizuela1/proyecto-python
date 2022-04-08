@@ -10,20 +10,17 @@ import pprint
 
 
 class Historial():
-    url = Configuracion.URL
-    client = MongoClient(url)
-    collection = client[Configuracion.DB]['historialsensores']
     def __init__(self) -> None:
         super().__init__()
-        url = Configuracion.URL
-        client = MongoClient(url)
-        collection = client[Configuracion.DB]['historialsensores']
-        id = 0
-        idSensor = 0
-        Valor = list()
-        Fechadecreacion = ""
-        Fechadeactualizacion = ""
-        lista = list()
+        self.url = Configuracion.URL
+        self.client = MongoClient(url)
+        self.collection = client[Configuracion.DB]['historialsensores']
+        self.id = 0
+        self.idSensor = 0
+        self.Valor = list()
+        self.Fechadecreacion = ""
+        self.Fechadeactualizacion = ""
+        self.lista = list()
     # gets
 
     def getHistorial(self):
