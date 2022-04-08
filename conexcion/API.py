@@ -1,4 +1,4 @@
-from ctypes.wintypes import HACCEL
+#from ctypes.wintypes import HACCEL
 from email import header
 from conf.configuracion import Configuracions
 from urllib import response
@@ -18,7 +18,7 @@ class api:
 
     def GET(self,url,path,datos):
         try:
-            if path=="login":
+            if path=="login" or path!="":
                 headers = CaseInsensitiveDict()
                 headers["Accept"] = "application/json"
                 data = {
