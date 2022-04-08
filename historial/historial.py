@@ -8,6 +8,7 @@ from pymongo import MongoClient
 import pprint
 
 
+
 class Historial():
     url = Configuracion.URL
     client = MongoClient(url)
@@ -49,6 +50,7 @@ class Historial():
         return self.collection.count_documents({'idSensor': 1})
 
 """
+pequeño script para generar datos de prueba
 p = Historial()
 for i in range(3,15):
     p.addMongoHistorial({
