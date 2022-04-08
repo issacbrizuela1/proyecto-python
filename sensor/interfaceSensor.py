@@ -14,7 +14,7 @@ class InterfasSensor:
         s = Sensor()
         s.NombreSensor = input("Nombre del Producto:")
         s.Descripcion = input("Nombre del Producto:")
-        s.Estado = "indefinido"
+        s.Estado[0]
         
         s.Fechadecreacion=datetime.datetime.now()
         s.IMG = input("ingrese una url de una imagen siquiere que su sensor tenga una\t:")
@@ -61,3 +61,5 @@ class InterfasSensor:
         self.mostrarProducto(mylista)
     def getListaSensores(self):
         return self.lista
+    def modificarSensor(self):
+        pass

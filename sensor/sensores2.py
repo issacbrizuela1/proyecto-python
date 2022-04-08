@@ -18,6 +18,7 @@ class Sensor(JsonFile):
         client = MongoClient(self.url)
         self.db = db
         self.collection = client[db]['sensores']
+        #
         self.idSensor = 0
         self.idUsuario = 0
         self.NombreSensor = ""
