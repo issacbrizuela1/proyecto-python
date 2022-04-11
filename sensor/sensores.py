@@ -1,5 +1,4 @@
 import collections
-from configuracion import Configuracion
 import gc
 import datetime
 from pymongo import MongoClient
