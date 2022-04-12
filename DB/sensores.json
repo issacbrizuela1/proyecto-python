@@ -1,5 +1,42 @@
 [
-  {
-      
-  }
+    {
+        "filename": "DB/sensores.json",
+        "idSensor": 1,
+        "idUsuario": "",
+        "NombreSensor": "prueba de edicion",
+        "Descripcion": "descripcion",
+        "Fechadecreacion": "",
+        "Fechadeactualisacion": "",
+        "Estado": "",
+        "GPIO": [
+            {
+                "prueba edicion1": 12
+            },
+            {
+                "pruebaedicion2": 24
+            }
+        ],
+        "IMG": "pruebadeedicion.jpg",
+        "lista": []
+    },
+    {
+        "filename": "DB/sensores.json",
+        "idSensor": 1,
+        "idUsuario": "",
+        "NombreSensor": "s",
+        "Descripcion": "s",
+        "Fechadecreacion": "2022-04-11 20:25:40.403430",
+        "Fechadeactualisacion": "",
+        "Estado": "indefinido",
+        "GPIO": [
+            {
+                "s": 1
+            },
+            {
+                "s": 1
+            }
+        ],
+        "IMG": "asd",
+        "lista": []
+    }
 ]
