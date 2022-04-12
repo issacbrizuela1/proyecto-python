@@ -25,9 +25,9 @@
         "idUsuario": "",
         "NombreSensor": "s",
         "Descripcion": "s",
-        "Fechadecreacion": "2022-04-11 20:25:40.403430",
+        "Fechadecreacion": "",
         "Fechadeactualisacion": "",
-        "Estado": "indefinido",
+        "Estado": "",
         "GPIO": [
             {
                 "s": 1
@@ -37,6 +37,23 @@
             }
         ],
         "IMG": "asd",
+        "lista": []
+    },
+    {
+        "filename": "DB/sensores.json",
+        "idSensor": 1,
+        "idUsuario": "",
+        "NombreSensor": "a",
+        "Descripcion": "a",
+        "Fechadecreacion": "2022-04-11T20:48:23.561561",
+        "Fechadeactualisacion": "",
+        "Estado": "indefinido",
+        "GPIO": [
+            {
+                "a": 1
+            }
+        ],
+        "IMG": "as",
         "lista": []
     }
 ]

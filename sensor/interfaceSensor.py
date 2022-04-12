@@ -31,7 +31,8 @@ class InterfasSensor:
             if opcion.upper() == "Y":
                 control = False
         fecha=datetime.datetime.now()
-        s.Fechadecreacion = str(fecha)
+        parse=fecha.isoformat()
+        s.Fechadecreacion =parse
         s.IMG = input("ingrese una url de una imagen siquiere que su sensor tenga una\t:")
         return s
 
