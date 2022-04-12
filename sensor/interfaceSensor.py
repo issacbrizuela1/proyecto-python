@@ -4,7 +4,7 @@ from sensores import Sensor
 
 
 class InterfasSensor:
-    
+
     def __init__(self) -> None:
         self.lista = Sensor()
         self.lista.toObjects()
@@ -19,7 +19,7 @@ class InterfasSensor:
         s.idUsuario = ""  # usuario en sesion
         s.NombreSensor = input("Nombre del Sensor:")
         s.Descripcion = input("Descripción del Sensor:")
-        s.Estado="indefinido"
+        s.Estado = "indefinido"
         print(
             "acontinuacion ingrese los puertos GPIO que usara y un nombre para cada puerto.")
         control = True
@@ -30,10 +30,11 @@ class InterfasSensor:
             s.GPIO.append({str(nombrePuerto): int(puerto)})
             if opcion.upper() == "Y":
                 control = False
-        fecha=datetime.datetime.now()
-        parse=fecha.isoformat()
-        s.Fechadecreacion =parse
-        s.IMG = input("ingrese una url de una imagen siquiere que su sensor tenga una\t:")
+        fecha = datetime.datetime.now()
+        parse = fecha.isoformat()
+        s.Fechadecreacion = parse
+        s.IMG = input(
+            "ingrese una url de una imagen siquiere que su sensor tenga una\t:")
         return s
 
     def iterar(self, lista):
@@ -43,7 +44,17 @@ class InterfasSensor:
                 for subval in list(valor):
                     self.iterar(subval)
             else:
-                print(str(i).ljust(5) + "\t\t" +str(valor))
+                print(str(i)+'      ' +
+                      str(valor.idSensor)+'      ' +
+                      str(valor.idUsuario)+'      ' +
+                      str(valor.NombreSensor)+'      ' +
+                      str(valor.Descripcion)+'      ' +
+                      str(valor.Estado)+'      ' +
+                      str(valor.GPIO)+'      ' +
+                      str(valor.Fechadecreacion)+'      ' +
+                      str(valor.Fechadeactualisacion)+'      ' +
+                      str(valor.IMG)+'      '
+                      )
                 i += 1
         pass
 
@@ -54,16 +65,19 @@ class InterfasSensor:
             mylista = self.lista
         else:
             mylista = self.lista
-        print("#".ljust(5) + "\t\t" +
-              "idSensor".ljust(5) + "\t\t" +
-              "idUsuario".ljust(5) + "\t\t" +
-              "NombreSensor".ljust(5) + "\t\t" +
-              'Descripcion'.ljust(10) + '\t\t' +
-              'Estado'.ljust(10) + '\t\t' +
-              'GPIO'.ljust(10) + '\t\t' +
-              'Fechadecreacion'.ljust(10) + '\t\t' +
-              'Fechadeactualisacion'.ljust(10) + '\t\t' +
-              'IMG'.ljust(10) + '\t\t')
+            print("#")
+            """
+        print("#" + '      ' +
+              "idSensor"+'      ' +
+              "idUsuario"+'      ' +
+              "NombreSensor"+'      ' +
+              'Descripcion'+'      ' +
+              'Estado'+'      ' +
+              'GPIO'+'      ' +
+              'Fechadecreacion'+'      ' +
+              'Fechadeactualisacion'+'      ' +
+              'IMG'+'      ')
+              """
         self.iterar(mylista)
         input("oprime enter para continuar .....")
 
@@ -80,7 +94,6 @@ class InterfasSensor:
 
     def getListaSensores(self):
         return self.lista
-        
 
     def modificarSensor(self):
         es = Sensor()
@@ -112,7 +125,7 @@ class InterfasSensor:
             if opcion.upper() == "Y":
                 mSensor.GPIO = GPIO
                 control = False
-        fecha=datetime.datetime.now()
+        fecha = datetime.datetime.now()
         mSensor.Fechadeactualisacion = str(fecha)
         mSensor.IMG = str(input("ingrese la nueva url para la imagen"))
         pass
@@ -157,6 +170,8 @@ class InterfasSensor:
                 print(
                     "La opcion no es correcta vuelve a seleccionar da enter para continuar.....")
                 input()
+
+
 if __name__ == '__main__':
-    s=InterfasSensor()
+    s = InterfasSensor()
     s.menuProductos()

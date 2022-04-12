@@ -8,12 +8,13 @@ from jsonfileSensor import JsonFile
 
 
 class Sensor(JsonFile):
-    
+
     url = 'mongodb+srv://root:ZXCVzxcv1234@sandbox1.1jic6.mongodb.net/proyecto?authSource=admin&replicaSet=atlas-lz7100-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true'
     client = MongoClient(url)
     db = 'proyecto'
     collection = client[db]['sensores']
     Estados = ["indefinido", "habilitado", "deshabilitado"]
+
     def __init__(self, idSensor=0, idUsuario=0, NombreSensor='', Descripcion='', Fechadecreacion='', Fechadeactualisacion='', Estado="", GPIO=list(), IMG=''):
         super(Sensor, self).__init__('DB/sensores.json')
         #
@@ -23,8 +24,8 @@ class Sensor(JsonFile):
         self.Descripcion = Descripcion
         self.Fechadecreacion = Fechadecreacion
         self.Fechadeactualisacion = Fechadeactualisacion
-        
-        self.Estado =""
+
+        self.Estado = ""
         self.GPIO = GPIO
         self.IMG = IMG
         #
@@ -66,7 +67,16 @@ class Sensor(JsonFile):
                 print(val)
 
     def __str__(self):
-        return str(self.idSensor)+str(self.idUsuario)+self.NombreSensor+self.Descripcion+self.Fechadecreacion+self.Fechadeactualisacion+self.Estado+str(self.GPIO)+self.IMG
+        return str(self.idSensor) +\
+            str(self.idUsuario) +\
+            self.NombreSensor +\
+            self.Descripcion +\
+            self.Fechadecreacion +\
+            self.Fechadeactualisacion +\
+            self.Estado +\
+            str(self.GPIO) +\
+            self.IMG
+
     def typo(self):
         return type(self.GPIO)
 
