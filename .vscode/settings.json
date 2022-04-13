@@ -1,6 +1,6 @@
 {
     "python.analysis.extraPaths": [
         "./sensor",
-        "./sensor"
+        "./login"
     ]
 }

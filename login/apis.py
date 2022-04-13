@@ -1,5 +1,4 @@
 #from ctypes.wintypes import HACCEL
-from email import header
 #from configuracion import Configuracion
 from urllib import response
 import requests
@@ -7,7 +6,7 @@ import json
 from requests.structures import CaseInsensitiveDict
 
 
-class api:
+class SERVAPI:
     #tabla = Configuracion.API_URL
 
     HEADEr = ''
@@ -16,8 +15,8 @@ class api:
     path = ''
 
     def __init__(self):
-        self.usuario=""
-        self.constrasena=""
+        # self.usuario
+        # self.constrasena
         pass
 
     def setUsuario(self, usuario):
@@ -34,15 +33,14 @@ class api:
 
     def GET(self, url, path, datos):
         try:
-            if path == "Login":
+            if path == "login":
                 headers = CaseInsensitiveDict()
                 headers["Accept"] = "application/json"
                 data = {
-                    "email": 'qwerty1@gmail.com',
-                    "password": '123456789'
+                    "usuario": datos.usuario,
+                    "contraseña": datos.contrasena
                 }
-                s=url+path
-                resp = requests.get(url=s, data=data, headers=headers)
+                resp = requests.post(path, data=data, headers=headers)
                 return resp.json()
             elif path == "register":
                 path = self.endpoint+path
@@ -105,20 +103,19 @@ class api:
                 return resp
         except Exception as error:
             print(error)
-#path, data=credenciales, headers=headers
-    def getToken(self):
+
+    def getToken(self, credenciales, path):
         try:
-            path ='http://127.0.0.1:3333/revisarToken'
+            path ='http://127.0.0.1:3333/'+path
             headers = CaseInsensitiveDict()
-            headers["bearer"] = "application/json"
-            resp = requests.get(url=path,data={'password':'123456789','email':'qwerty1@gmail.com'},headers=headers)
+            headers["Accept"] = "application/json"
+            resp = requests.post()
             return resp.json()
         except Exception as error:
             print(error)
 
 
-p = api()
+##p = SERVAPI()
 #x = p.GET(path='mostrarSensores', url='http://127.0.0.1:3333/')
-r=p.GET(path='Login',url='http://127.0.0.1:3333/')
-#r=p.getToken()
-print(r)
+#r=p.GET(path='mostrarSensores', url='http://127.0.0.1:3333/',datos={})
+#print(x)
