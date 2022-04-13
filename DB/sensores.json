@@ -46,14 +46,34 @@
         "NombreSensor": "xd",
         "Descripcion": "xd",
         "Fechadecreacion": "",
-        "Fechadeactualisacion": "2022-04-11 21:04:02.540043",
-        "Estado": "habilitado",
+        "Fechadeactualisacion": "",
+        "Estado": "",
         "GPIO": [
             {
                 "a": 23
             }
         ],
         "IMG": "asadsdada",
+        "lista": []
+    },
+    {
+        "filename": "DB/sensores.json",
+        "idSensor": 1,
+        "idUsuario": "",
+        "NombreSensor": "\u00f1",
+        "Descripcion": "\u00f1",
+        "Fechadecreacion": "2022-04-13T13:27:10.480663",
+        "Fechadeactualisacion": "",
+        "Estado": "indefinido",
+        "GPIO": [
+            {
+                "asd": 12
+            },
+            {
+                "a": 2
+            }
+        ],
+        "IMG": "as",
         "lista": []
     }
 ]
