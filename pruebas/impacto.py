@@ -7,7 +7,7 @@ sensor = 17
 led = 27
 GPIO.setup(sensor, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.setup(led, GPIO.OUT)
-  
+
   
 #Function executed on signal detection
 def active(null):

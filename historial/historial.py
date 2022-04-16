@@ -1,9 +1,4 @@
-import collections
-from random import randrange
-import self
-from configuracion import Configuracion
-import gc
-import datetime
+from modulos.configuracion import Configuracion
 from pymongo import MongoClient
 import pprint
 

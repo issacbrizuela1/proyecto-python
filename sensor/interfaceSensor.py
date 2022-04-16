@@ -136,7 +136,7 @@ class InterfasSensor:
         print(self.lista.mostrar_sensor(id))
         self.lista.eliminar(self.lista.mostrar_sensor(id))
 
-    def menuProductos(self):
+    def menuSensor(self):
         a = 10
         while a != 0:
             self.limpirarConsola()
@@ -174,4 +174,4 @@ class InterfasSensor:
 
 if __name__ == '__main__':
     s = InterfasSensor()
-    s.menuProductos()
+    s.menuSensor()

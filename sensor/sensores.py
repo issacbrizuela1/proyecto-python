@@ -4,6 +4,7 @@ import datetime
 from pymongo import MongoClient
 import pprint
 import asyncio
+
 from jsonfileSensor import JsonFile
 
 
@@ -15,16 +16,15 @@ class Sensor(JsonFile):
     collection = client[db]['sensores']
     Estados = ["indefinido", "habilitado", "deshabilitado"]
 
-    def __init__(self, idSensor=0, idUsuario=0, NombreSensor='', Descripcion='', Fechadecreacion='', Fechadeactualisacion='', Estado="", GPIO=list(), IMG=''):
-        super(Sensor, self).__init__('DB/sensores.json')
-        #
+    def __init__(self, idSensor=0, idUsuario=0, NombreSensor='', Descripcion='', Fechadecreacion='', Fechadeactualisacion='', GPIO=list(), IMG=''):
+        super(Sensor,self).__init__('DB/sensores.json')
+
         self.idSensor = idSensor
         self.idUsuario = idUsuario
         self.NombreSensor = NombreSensor
         self.Descripcion = Descripcion
         self.Fechadecreacion = Fechadecreacion
         self.Fechadeactualisacion = Fechadeactualisacion
-
         self.Estado = ""
         self.GPIO = GPIO
         self.IMG = IMG
