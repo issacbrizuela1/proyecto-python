@@ -1,24 +1,18 @@
-import collections
-import gc
-import datetime
 from pymongo import MongoClient
-import pprint
-import asyncio
-
+from modulos.configuracion import Configuracion
 from jsonfileSensor import JsonFile
+from conexcion.API2 import Servicio
 
 
-class Sensor(JsonFile):
-
+class Sensor(JsonFile,Servicio):
     url = 'mongodb+srv://root:ZXCVzxcv1234@sandbox1.1jic6.mongodb.net/proyecto?authSource=admin&replicaSet=atlas-lz7100-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true'
     client = MongoClient(url)
     db = 'proyecto'
     collection = client[db]['sensores']
+    Llista = list()
     Estados = ["indefinido", "habilitado", "deshabilitado"]
-
     def __init__(self, idSensor=0, idUsuario=0, NombreSensor='', Descripcion='', Fechadecreacion='', Fechadeactualisacion='', GPIO=list(), IMG=''):
         super(Sensor,self).__init__('DB/sensores.json')
-
         self.idSensor = idSensor
         self.idUsuario = idUsuario
         self.NombreSensor = NombreSensor
@@ -29,34 +23,34 @@ class Sensor(JsonFile):
         self.GPIO = GPIO
         self.IMG = IMG
         #
-        self.lista = list()
+        self.Llista = list()
         pass
 
-    def crear_sensor(self, sensor):
-        self.lista.append(sensor)
+    def lcrear_sensor(self, sensor):
+        self.Llista.append(sensor)
 
-    def mostrar_sensor(self, index):
-        return self.lista[index]
+    def lmostrar_sensor(self, index):
+        return self.Llista[index]
 
-    def mostrar_sensores(self):
-        return self.lista
+    def lmostrar_sensores(self):
+        return self.Llista
 
-    def modificar_sensor(self, index, sensor):
-        self.lista[index] = sensor
+    def lmodificar_sensor(self, index, sensor):
+        self.Llista[index] = sensor
 
-    def eliminar(self, sensor):
-        self.lista.remove(sensor)
+    def leliminar(self, sensor):
+        self.Llista.remove(sensor)
 
-    def tamano(self):
-        return len(self.lista)
+    def ltamano(self):
+        return len(self.Llista)
 
     def toObjects(self):
-        lista = list()
+        Llista = list()
         data = self.getDataJson()
         for x in data:
-            lista.append(Sensor(idSensor=x['idSensor'], idUsuario=x['idUsuario'], NombreSensor=x["NombreSensor"],
+            Llista.append(Sensor(idSensor=x['idSensor'], idUsuario=x['idUsuario'], NombreSensor=x["NombreSensor"],
                                 Descripcion=x["Descripcion"], Estado=x["Estado"], GPIO=x["GPIO"], IMG=x["IMG"]))
-        self.lista = lista
+        self.Llista = Llista
 
     def iterar(v):
         for val in list(v):
@@ -65,6 +59,23 @@ class Sensor(JsonFile):
                     print(subval)
             else:
                 print(val)
+
+    def NcrearSensor(self,):
+
+        pass
+    def NmostrarSensor(self):
+
+        pass
+
+    def NverificarSensor(self):
+
+        pass
+    def NeditarSensor(self):
+
+        pass
+    def NeliminarSensor(self):
+
+        pass
 
     def __str__(self):
         return str(self.idSensor) +\
@@ -95,19 +106,7 @@ class Sensor(JsonFile):
 
     def listDict(self):
         listDiccionario = list()
-        for x in self.lista:
+        for x in self.Llista:
             listDiccionario.append(x.__dict__)
             print(x.getDictory())
         return listDiccionario
-
-    def __iter__(self):
-        self.__idx__ = 0
-        return self
-
-    def __next__(self):
-        if self.__idx__ < len(self.lista):
-            x = self.lista[self.__idx__]
-            self.__idx__ += 1
-            return x
-        else:
-            raise StopIteration

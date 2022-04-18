@@ -1,10 +1,11 @@
 import sys
 from conexcion.API2 import Servicio
-
+from modulos.configuracion import Configuracion
 
 class Login():
 
     path = ['Login', 'Register', 'revisarToken','straerUsuario','scerrarSesion']
+    Lurl=Configuracion.API_URL
     lista=list()
     LToken=''
     LEstado=''
@@ -17,10 +18,10 @@ class Login():
     def login(self,user,password):
         self.usuario=user
         self.contrasena=password
-        resp = Servicio.POST(self,url='http://127.0.0.1:3333/', path=self.path[0],datos={'email':self.usuario, 'password':self.contrasena})
+        resp = Servicio.POST(self,url=self.Lurl, path=self.path[0],datos={'email':self.usuario, 'password':self.contrasena})
         Servicio.setToken(self,resp['token'])
         self.LToken =Servicio.getToken(self)
-        s = Servicio.comprovartoken(self,url='http://127.0.0.1:3333/')
+        s = Servicio.comprovartoken(self,url=self.Lurl)
         if s==True:
             self.LEstado=Servicio.aESTADO='activo'
         else:
@@ -30,12 +31,12 @@ class Login():
         return s
 
     def logout(self):
-        resp = Servicio.nHPOST(self, url='http://127.0.0.1:3333/', path=self.path[4], HEADER=self.LToken)
+        resp = Servicio.nHPOST(self, url=self.Lurl, path=self.path[4], HEADER=self.LToken)
         return resp
         pass
 
     def getusuario(self):
-        resp=Servicio.HGET(self,url='http://127.0.0.1:3333/', path=self.path[3],HEADER=self.LToken)
+        resp=Servicio.HGET(self,url=self.Lurl, path=self.path[3],HEADER=self.LToken)
         return resp
 
     def crearUsuario(self, login):
