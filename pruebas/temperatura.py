@@ -14,12 +14,12 @@ import time
 import adafruit_dht
 
 # Configuracion del puerto GPIO al cual esta conectado  (GPIO 23)
-pin = 23
+pin = 22
 
 # Crea el objeto para acceder al sensor
 # se debe descomentar la linea dependiendo del tipo de sensor (DHT11 o DHT22)
 #sensor = adafruit_dht.DHT11(pin)
-sensor = adafruit_dht.DHT22(pin)
+sensor = adafruit_dht.DHT11(pin)
 
 # Funcion principal
 def main():
