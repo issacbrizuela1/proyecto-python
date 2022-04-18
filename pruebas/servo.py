@@ -29,7 +29,7 @@ pwm = GPIO.PWM(pwm_gpio, frequence)
 time.sleep(5)
 
 
-#Init at center
+#Init at right
 angulo1=145
 pwm.start(angle_to_percent(angulo1))
 print('angulo '+str(angulo1)+"°")
@@ -41,7 +41,7 @@ pwm.ChangeDutyCycle(angle_to_percent(angulo1))
 print('angulo '+str(angulo1)+"°")
 time.sleep(5)
 
-#Finish at right
+#Finish at center
 angulo1=130
 pwm.ChangeDutyCycle(angle_to_percent(angulo1))
 print('angulo '+str(angulo1)+"°")

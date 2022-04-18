@@ -1,10 +1,13 @@
+"""
+libreria para consumo de petisiones HTTP
+"""
 import requests
 from requests.structures import CaseInsensitiveDict
 
 
 class Servicio:
-    aTOKEN = ""
-    aESTADO = ""
+    aTOKEN = ""#variable que lamacenara el token en sesion mientras se ejecuta el programa
+    aESTADO = ""#variable que lamacenara el estado de la sesion
     def __init__(self):
         pass
 
@@ -19,7 +22,7 @@ class Servicio:
 
     def getEstado(self):
         return self.aESTADO
-
+    #peticiones con H o D hacen referencia a que llevan header o datos algunas pueden no requerir datos o headers
     def GET(self, url, path):
         try:
             if path != "":
