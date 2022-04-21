@@ -17,13 +17,9 @@ import adafruit_dht
 # se debe descomentar la linea dependiendo del tipo de sensor (DHT11 o DHT22)
 class Dht11:
     # Configuracion del puerto GPIO al cual esta conectado  (GPIO 23)
-    defaultpin = 22
 
-    def __init__(self, pin) -> None:
-        if pin is not None:
-            self.pin = pin
-        else:
-            self.pin = self.defaultpin
+    def __init__(self) -> None:
+        self.pin = 22
         # sensor = adafruit_dht.DHT11(pin)
         self.sensor = adafruit_dht.DHT11(self.pin)
 
@@ -56,3 +52,5 @@ class Dht11:
             except RuntimeError as error:
                 print(error.args[0])
             time.sleep(10)
+x=Dht11()
+x.consolatemphum()

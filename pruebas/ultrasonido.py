@@ -1,6 +1,5 @@
 import time
 from urllib import response
-from proyecto import configuracion
 import requests
 import json
 from requests.structures import CaseInsensitiveDict

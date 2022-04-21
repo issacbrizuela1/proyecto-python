@@ -5,20 +5,21 @@ import time
 
 
 class ULTRASONIDO:
-    default_TRIG = 23  # Variable que contiene el GPIO al cual conectamos la señal TRIG del sensor
-    default_ECHO = 24  # Variable que contiene el GPIO al cual conectamos la señal ECHO del sensor
+    # Variable que contiene el GPIO al cual conectamos la señal TRIG del sensor
+    default_TRIG = 23
+    # Variable que contiene el GPIO al cual conectamos la señal ECHO del sensor
+    default_ECHO = 24
 
-    def __init__(self, trig, echo):
+    def __init__(self):
         try:
-            if trig is not None and echo is not None:
-                self.TRIG = trig
-                self.ECHO = echo
-            else:
-                self.TRIG = self.default_TRIG
-                self.ECHO = self.default_ECHO
-                GPIO.setmode(GPIO.BCM)  # Establecemos el modo según el cual nos refiriremos a los GPIO de nuestra RPi
-                GPIO.setup(self.TRIG, GPIO.OUT)  # Configuramos el pin TRIG como una salida
-                GPIO.setup(self.ECHO, GPIO.IN)  # Configuramos el pin ECHO como una salida
+            self.TRIG = self.default_TRIG
+            self.ECHO = self.default_ECHO
+            # Establecemos el modo según el cual nos refiriremos a los GPIO de nuestra RPi
+            GPIO.setmode(GPIO.BCM)
+            # Configuramos el pin TRIG como una salida
+            GPIO.setup(self.TRIG, GPIO.OUT)
+            # Configuramos el pin ECHO como una salida
+            GPIO.setup(self.ECHO, GPIO.IN)
         except Exception as error:
             print(error)
 
@@ -58,4 +59,7 @@ class ULTRASONIDO:
             # Reiniciamos todos los canales de GPIO.
             GPIO.cleanup()
 
+
+x = ULTRASONIDO()
+x.ultinicio()
 gc.enable()

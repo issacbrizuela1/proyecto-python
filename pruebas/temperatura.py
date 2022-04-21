@@ -41,7 +41,7 @@ def main():
             print(error.args[0])
 
         # Duerme 10 segundos
-        time.sleep(10)
+        time.sleep(3)
 
 # Llama a la funcion principal
 if __name__ == "__main__":
